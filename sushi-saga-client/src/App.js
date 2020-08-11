@@ -71,10 +71,8 @@ class App extends Component {
     })
   }
 
-  addBalance = (event, amount) => {
-    event.preventDefault();
+  addBalance = (amount) => {
     this.setState({balance: this.state.balance + amount})
-    event.target.reset();
   }
 
   render() {

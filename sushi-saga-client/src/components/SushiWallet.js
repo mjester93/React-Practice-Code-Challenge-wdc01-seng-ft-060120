@@ -14,10 +14,16 @@ class SushiWallet extends React.Component {
         this.setState({balanceToAdd: parseInt(event.target.value, 10)})
     }
 
+    updateBalance = (event) => {
+        event.preventDefault();
+        this.props.addBalance(this.state.balanceToAdd); 
+        this.setState({balanceToAdd: 0})
+    }
+
     render() {
         return (
             <div>
-                <form onSubmit={(event) => this.props.addBalance(event, this.state.balanceToAdd)}>
+                <form onSubmit={(event) => {this.updateBalance(event)}}>
                     <label for="balance-to-add">Balance To Add: </label>
                     <input 
                         type="number" 
