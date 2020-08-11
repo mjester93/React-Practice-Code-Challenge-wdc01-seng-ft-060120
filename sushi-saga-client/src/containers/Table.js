@@ -1,19 +1,25 @@
 import React, { Fragment } from 'react'
+import SushiWallet from '../components/SushiWallet'
 
 const Table = (props) => {
 
+  const { balance, sushiAte, addBalance } = props
+
   const renderPlates = (array) => {
     return array.map((x, index) => {
-      return <div className="empty-plate" style={{ top: -7 * index }}/>
+      return <div className="empty-plate" style={{ top: -7 * index }}></div>
     })
   }
 
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
-      </h1>
+        You have: ${balance} remaining!
+      </h1>  
       <div className="table">
+        <div style={{margin: '0 auto', width: '50%'}}>
+          <SushiWallet addBalance={addBalance}/>
+        </div>
         <div className="stack">
           {
             /* 
@@ -21,7 +27,7 @@ const Table = (props) => {
                and renders an empty plate
                for every element in the array
             */
-            renderPlates([])
+            renderPlates(sushiAte)
           }
         </div>
       </div>
